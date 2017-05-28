@@ -1,3 +1,23 @@
+Vue.component('todo-item', {
+  props: ['event', 'delete-event'],
+  template: `
+    <a href="#">
+      <h4 class="list-group-item-heading">
+        <i class="glyphicon glyphicon-bullhorn"></i> 
+        {{ event.name }}
+      </h4>
+
+      <h5>
+        <i class="glyphicon glyphicon-calendar" v-if="event.date"></i> 
+        {{ event.date }}
+      </h5>
+
+      <p class="list-group-item-text" v-if="event.description">{{ event.description }}</p>
+
+      <button class="btn btn-xs btn-danger" v-on:click="delete-event(event.index)">Delete</button>
+    </a>
+  `
+})
 new Vue({
   el: '#events',
   data: {
