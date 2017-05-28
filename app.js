@@ -1,5 +1,5 @@
 Vue.component('todo-item', {
-  props: ['event', 'delete-event'],
+  props: ['event', 'deleteevent'],
   template: `
     <a href="#">
       <h4 class="list-group-item-heading">
@@ -14,7 +14,7 @@ Vue.component('todo-item', {
 
       <p class="list-group-item-text" v-if="event.description">{{ event.description }}</p>
 
-      <button class="btn btn-xs btn-danger" v-on:click="delete-event(event.index)">Delete</button>
+      <button class="btn btn-xs btn-danger" @click="deleteevent(event.index)">Delete</button>
     </a>
   `
 })
@@ -60,7 +60,7 @@ new Vue({
       }
     },
 
-    deleteEvent: function(index) {
+    deleteevent: function(index) {
       this.events.splice(index, 1);
     }
   }
